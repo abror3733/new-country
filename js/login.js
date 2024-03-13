@@ -18,7 +18,7 @@ evt.preventDefault()
     <img class="loading-img" src="./images/loading.png" width="130" height="130"/>
     `
     setTimeout(()=>{
-    window.location ="index.html"
+    window.location ="main.html"
     },2000)
   },0)
  }
