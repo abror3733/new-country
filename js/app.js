@@ -4,6 +4,9 @@ let elInputSearchName = document.querySelector(".search-name")
 let elInputSearchCapital =document.querySelector(".search-capital")
 let elSelectRegion =document.querySelector(".select-region")
 
+let elModalWrapper =document.querySelector(".modal-wrapper")
+let elModal = document.querySelector(".modal")
+
 let SelectOptinList = []
 
 const getData =async (URL)=>{
@@ -50,7 +53,7 @@ function renderCountry(arr,list){
     <strong class="text-[14px] font-semibold ">Region:
     <span class=" text-emerald-600 text-[18px]"> ${item.region}</span> </strong>
     </div>
-    <button class=" btn-more  py-[5px] px-[20px] text-center  w-[90px] rounded-[10px] text-[18px] text-black bg-cyan-300 " >More</button>
+    <button onclick="moreBtnClicked(${item.id})" class=" btn-more  py-[5px] px-[20px] text-center  w-[90px] rounded-[10px] text-[18px] text-black bg-cyan-300 " >More</button>
     `
     list.appendChild(elItem)  // list.appendChild(elItem)
   })
@@ -97,4 +100,18 @@ elSelectRegion.addEventListener("change", function(evt){
     })
   }
 
+})
+
+
+function moreBtnClicked(){
+  elModalWrapper.classList.add("open-modal")
+  elModal.innerHTML =`
+  <img src=""/>
+  `
+}
+
+elModalWrapper.addEventListener("click",function(evt){
+  if(evt.target.id == "modal-wrapper"){
+    elModalWrapper.classList.remove("open-modal")
+  }
 })

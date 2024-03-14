@@ -107,3 +107,33 @@ h2{
  input:checked + .slider:before {
   transform: translateX(1.9em);
  }
+
+ /* //Modal  */
+
+ .modal-wrapper{
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+}
+.modal{
+  position: absolute;
+  width: 60%;
+  height: 50%;
+  background-color: rgb(199, 196, 196);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.open-modal{
+  display: block;
+}
