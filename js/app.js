@@ -7,6 +7,9 @@ let elSelectRegion =document.querySelector(".select-region")
 let elModalWrapper =document.querySelector(".modal-wrapper")
 let elModal = document.querySelector(".modal")
 
+let elDarkMode = document.querySelector(".slider")
+let elBody =document.querySelector("body")
+
 let SelectOptinList = []
 
 const getData =async (URL)=>{
@@ -35,7 +38,7 @@ function renderCountry(arr,list){
   list.innerHTML=``
   arr.map(item=>{
     let elItem = document.createElement("li")
-    elItem.className=" list-item p-2 mt-[20px] rounded-b-[20px] rounded-t-[6px]  text-white h-[440px] w-[280px]"
+    elItem.className=" list-item dark-item p-2 mt-[20px] rounded-b-[20px] rounded-t-[6px]  text-white h-[440px] w-[280px]"
     elItem.innerHTML=`
     <img class="w-[280px] h-[190px]" src="${item.flags.png}" width="280" height="190"/>
     <div class="p-2 flex flex-col  text-center pt-[20px]">
@@ -53,11 +56,12 @@ function renderCountry(arr,list){
     <strong class="text-[14px] font-semibold ">Region:
     <span class=" text-emerald-600 text-[18px]"> ${item.region}</span> </strong>
     </div>
-    <button onclick="moreBtnClicked(${item.id})" class=" btn-more  py-[5px] px-[20px] text-center  w-[90px] rounded-[10px] text-[18px] text-black bg-cyan-300 " >More</button>
+    <button onclick="moreBtnClicked(${item.capital[1]})"  class=" btn-more  py-[5px] px-[20px] text-center  w-[90px] rounded-[10px] text-[18px] text-black bg-cyan-300 " >More</button>
     `
     list.appendChild(elItem)  // list.appendChild(elItem)
   })
 }
+// onclick="moreBtnClicked(${item.capital})"
 elInputSearchName.addEventListener("keyup",function(evt){
   let value = evt.target.value
   if(value){
@@ -105,13 +109,28 @@ elSelectRegion.addEventListener("change", function(evt){
 
 function moreBtnClicked(){
   elModalWrapper.classList.add("open-modal")
-  elModal.innerHTML =`
-  <img src=""/>
-  `
+ 
 }
 
 elModalWrapper.addEventListener("click",function(evt){
   if(evt.target.id == "modal-wrapper"){
     elModalWrapper.classList.remove("open-modal")
+  
   }
+})
+// elModal.innerHTML=`
+// <img class="w-[280px] h-[190px]" src="${item.flags.png}" width="280" height="190"/>
+// <div class="p-2 flex flex-col  text-center pt-[20px]">
+// <strong class="text-[14px] font-semibold ">Country:
+//   <span class=" text-emerald-600 text-[18px]"> ${item.altSpellings[1]}</span>
+//   </strong>
+//   <strong class="text-[14px] font-semibold ">Capital:
+//   <span class=" text-emerald-600 text-[18px]">${item.capital}</span>
+//   </strong>
+// `
+
+// dark mode 
+
+elDarkMode.addEventListener("click",function(evt){
+  elBody.classList.toggle("dark-mode")
 })

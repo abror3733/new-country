@@ -137,3 +137,11 @@ h2{
 .open-modal{
   display: block;
 }
+.dark-mode{
+  background-color: rgb(185, 182, 176);
+  color: black;
+}
+.dark-item{
+  background-color: rgba(54, 53, 53, 0.884);
+  backdrop-filter: blur(15px);
+}
